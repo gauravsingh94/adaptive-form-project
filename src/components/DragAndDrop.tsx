@@ -4,7 +4,6 @@ import { useSetRecoilState } from "recoil";
 
 const DragAndDrop: React.FC<{}> = () => {
   const setJson = useSetRecoilState(jsonData);
-
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
@@ -14,11 +13,12 @@ const DragAndDrop: React.FC<{}> = () => {
         const jsonContent = e.target?.result;
         if (typeof jsonContent == "string") {
           setJson(JSON.parse(jsonContent));
+          alert("Json Uploaded Successfully.");
         }
-        reader.readAsText(file);
       };
+      reader.readAsText(file);
     }
-  };
+  };  
   const handeDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
