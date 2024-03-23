@@ -11,6 +11,7 @@ const WriteJsonField = () => {
   };
   const handleSubmit = () => {
     setJsonData(JSON.parse(jsonText));
+    alert("Now click on 'See form' to see the form.");
   };
   const handleNavigate = () => {
     Navigate("/form");
